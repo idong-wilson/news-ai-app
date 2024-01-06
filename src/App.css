@@ -7,4 +7,34 @@
   align-items: center;
   font-family: roboto;
   flex-direction: column;
+  padding: 30px;
+}
+
+.main-grid {
+  display: grid;
+  grid-template-columns: auto;
+  gap: 20px;
+}
+
+.news-grid {
+  border: 1px solid #eeeeee;
+  padding: 25px;
+  border-radius: 10px;
+}
+
+.img {
+  width: 100%;
+}
+
+.title {
+  font-size: 22px;
+  font-weight: 700;
+}
+
+.content {
+  font-size: 16px;
+}
+
+.author {
+  font-size: 14px;
 }
