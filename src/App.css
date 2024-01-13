@@ -2,7 +2,6 @@
 
 .main {
   display: flex;
-  height: 100vh;
   justify-content: center;
   align-items: center;
   font-family: roboto;
@@ -27,14 +26,39 @@
 }
 
 .title {
-  font-size: 22px;
+  font-size: 24px;
   font-weight: 700;
+  line-height: 1.5;
 }
 
 .content {
   font-size: 16px;
+  line-height: 1.5;
 }
 
 .author {
   font-size: 14px;
+}
+
+.info {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.dropdown {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  width: 360px;
+  gap: 20px;
+}
+
+.dropdown-container {
+  width: 125px;
+  height: 35px;
+  padding: 10px;
+  border: 1px solid #eeeeee;
+  outline: none;
 }

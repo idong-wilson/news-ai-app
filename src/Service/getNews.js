@@ -1,8 +1,8 @@
 import axios from 'axios';
 
-export function getNews() {
-  const API_KEY = `c65ae98c05d147c0824caa03b1ac3908`;
-  const API_Endpoint = `https://newsapi.org/v2/top-headlines?country=us`;
+export function getNews(category = 'General') {
+  const API_KEY = `af29b7a5c0a649a0adc39920dfe883f5`;
+  const API_Endpoint = `https://newsapi.org/v2/top-headlines?country=us&category=${category}`;
 
   // Return the Axios promise
   return axios.get(`${API_Endpoint}&apiKey=${API_KEY}`);
