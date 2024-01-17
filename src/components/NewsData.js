@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useCallback } from 'react';
 import { getNews } from '../Service/getNews';
 import moment from 'moment';
 import alanBtn from '@alan-ai/alan-sdk-web';
@@ -9,16 +9,16 @@ const NewsData = () => {
   const [selectOption, setSelectOption] = useState('');
   const [loading, setLoading] = useState(true);
 
-  const getAllNews = async () => {
+  const getAllNews = useCallback(async () => {
     try {
       let data = await getNews(selectOption);
       setNewsData(data.data.articles);
     } catch (error) {
       console.error('Error fetching news data:', error);
     } finally {
-      setLoading(false); // Set loading to false regardless of success or failure
+      setLoading(false);
     }
-  };
+  }, [selectOption]);
 
   const selectCategory = (event) => {
     setSelectOption(event.target.value);
@@ -29,18 +29,13 @@ const NewsData = () => {
       key: alanKey,
       onCommand: (commandData) => {
         setSelectOption(commandData.data);
-        
-        // Assuming this is within a user-triggered event (e.g., button click)
-        const audioContext = new (window.AudioContext || window.webkitAudioContext)();
-        audioContext.resume();
       },
     });
   }, [alanKey]);
-  
 
   useEffect(() => {
     getAllNews();
-  }, [selectOption]);
+  }, [getAllNews]);
 
   if (loading) {
     return <p>Loading...</p>;
